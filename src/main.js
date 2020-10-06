@@ -227,3 +227,12 @@ document.body.addEventListener(
   },
   /* capture */ "true"
 );
+
+var root = document.documentElement;
+const lists = document.querySelectorAll('.post-list');
+
+lists.forEach(el => {
+  const listItems = el.querySelectorAll('.post-list__item');
+  const n = el.children.length;
+  el.style.setProperty('--post-total', n);
+});

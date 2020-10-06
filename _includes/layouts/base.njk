@@ -65,7 +65,12 @@
         </div>
         <div id="reading-progress" aria-hidden="true"></div>
       </nav>
-      <h1>{{ title }}</h1>
+
+      <div class="hero">
+        <img src="/img/hero.jpg" alt="alt">
+        <h1 class="hero__title">{{ title }}</h1>
+      </div>
+
       {% block extraArticleHeader %}{% endblock %}
       <dialog id="message"></dialog>
       {% if googleanalytics %}
