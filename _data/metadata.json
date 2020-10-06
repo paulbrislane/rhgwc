@@ -1,9 +1,9 @@
 {
-  "title": "Title of the website. Update me.",
-  "url": "https://update-me.com",
-  "domain": "update-me.com",
-  "description": "Description of the website. Update me.",
-  "genre": "Insert a schema.org genre",
+  "title": "Romiley & Hazel Grove Walking Club",
+  "url": "https://rhgwalking.club",
+  "domain": "rhgwalking.club",
+  "description": "The adventures of Dan and Paul within the mountainous regions of the UK.",
+  "genre": "Organization",
   "googleAnalyticsId": "GA ID. Update me",
   "feed": {
     "subtitle": "Subtitle. Update me.",
@@ -16,10 +16,10 @@
     "url": "https://update-me.com/feed/feed.json"
   },
   "author": {
-    "name": "Author Name. Update me.",
-    "twitterHandle": "update_me"
+    "name": "R&HG Walking Club",
+    "twitterHandle": "rhgwc"
   },
   "publisher": {
-    "name": "Publisher name. Update me."
+    "name": "RHGWC"
   }
 }
