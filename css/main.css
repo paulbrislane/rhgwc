@@ -104,9 +104,9 @@ header aside {
   pointer-events: none;
 }
 
-#posts li {
+/* #posts li {
   margin-bottom: 0.5em;
-}
+} */
 
 /* https://github.com/rsms/inter/blob/master/LICENSE.txt
 
@@ -340,6 +340,13 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
   src: url("/fonts/Inter-BlackItalic.woff2") format("woff2"),
        url("/fonts/Inter-BlackItalic.woff") format("woff");
 }
+@font-face {
+  font-family: 'Syncopate';
+  font-style:  normal;
+  font-weight: 700;
+  src: url("/fonts/Syncopate-bold.woff2") format("woff2"),
+       url("/fonts/Sycopate-bold.woff") format("woff");
+}
 
 /* --------------------------------------------------------------------------
 Single variable font.
@@ -461,6 +468,7 @@ a {
 /* My Styling */
 
 body {
+  background-color: #000 !important;
   margin: 0;
   min-height: 100vh;
   display: flex;
@@ -468,8 +476,12 @@ body {
 }
 
 header {
-  /* padding: 0;
-  width: 100%; */
+  padding: 0;
+  width: 100%;
+}
+
+header nav {
+  position: initial;
 }
 
 main {
@@ -498,9 +510,65 @@ img {
   position: absolute;
 }
 
+.title {
+  font-family: 'Syncopate';
+  /* text-transform: uppercase;
+  text-align: left;
+  font-size: 48px;
+  line-height: 1;
+  position: relative; */
+  width: 100%;
+}
+
+.title__fill {
+  fill: #121212;
+}
+
+.title__container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  color: #fff;
+  align-items: flex-end;
+}
+
+.small {
+  fill: red;
+}
+
+.title h1 {
+  font-family: 'Syncopate';
+  text-transform: uppercase;
+  margin: 0;
+  text-align: left;
+  font-size: 60px;
+  line-height: 1.1;
+  /* position: relative; */
+}
+
+.title span {
+}
+
+/* .title span span {
+  color: #ff0000;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  font-size: 9vw;
+} */
+
+.title p {
+  font-size: 14px;
+  margin: 0 0 11px;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+/*
 #posts li {
   margin-bottom: 0;
-}
+} */
 
 .post-list {
   padding: 0;
