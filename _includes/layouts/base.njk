@@ -57,7 +57,7 @@
     <header>
       <nav>
         <div id="nav">
-          <h1><a href="{{ '/' | url }}" title="Homepage">{{ metadata.title }}</a></h1>
+          <a class="logo" href="{{ '/' | url }}" title="Homepage">{{ metadata.abbr }}</a></h1>
           {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
           {%- for entry in collections.all | eleventyNavigation %}
             <a href="{{ entry.url | url }}">{{ entry.title }}</a>
@@ -78,11 +78,6 @@
           </div>
         </div>
       {% endif %}
-
-      {# <div class="hero">
-        <img src="/img/hero.jpg" alt="alt">
-        <h1 class="hero__title">{{ title }}</h1>
-      </div> #}
 
       {% block extraArticleHeader %}{% endblock %}
       <dialog id="message"></dialog>
