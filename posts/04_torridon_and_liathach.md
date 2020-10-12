@@ -1,9 +1,10 @@
 ---
-title: This is Torridon and Liathach
-description: This is a post on My Blog about touchpoints and circling wagons.
+title: Torridon & Liathach
+description: Never again will we drive to Scotland.
 date: 2020-09-25
 tags: second-tag
 layout: layouts/post.njk
+image: /img/liathach/liathach.jpg
 ---
 
 Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.

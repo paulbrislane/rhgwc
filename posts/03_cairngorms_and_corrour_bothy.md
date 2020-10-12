@@ -1,10 +1,11 @@
 ---
-title: The Cairngorms and Corrour Bothy
-description: This is a post on My Blog about win-win survival strategies.
+title: The Cairngorms & Corrour Bothy
+description: Don't take a bottle of red wine and a hard back book.
 date: 2018-08-24
 tags:
   - second-tag
 layout: layouts/post.njk
+image: /img/cairngorms/cairngorms.jpg
 ---
 Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
 
