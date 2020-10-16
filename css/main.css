@@ -474,9 +474,10 @@ a {
 
 /* My Styling */
 :root {
-  --container-width: 1380px;
+  --container-width: 1500px;
   --container-width-small: 700px;
-  --header-height: 60px;
+  --nav-font-size: 14px;
+  --header-height: calc(90px + var(--nav-font-size));
 }
 
 body {
@@ -510,7 +511,8 @@ header nav a {
   font-family: 'Syncopate';
   color: #fff;
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: var(--nav-font-size);
+  letter-spacing: 0.15em;
   margin: 0;
   line-height: 1;
 }
@@ -623,8 +625,8 @@ header nav {
 }
 
 .post-list {
-  padding: 20px;
-  margin: -20px;
+  padding: 0;
+  /* margin: -20px; */
   list-style: none;
   display: grid;
   grid-gap: 10px;
@@ -639,11 +641,11 @@ header nav {
 
 @media(min-width:768px) {
   .post-list {
-    grid-gap: 20px;
+    grid-gap: 30px;
     grid-template-columns:
-      20px
-      repeat(var(--post-total), calc(40% - 80px))
-      20px;
+      60px
+      repeat(var(--post-total), 25%)
+      60px;
   }
 }
 
@@ -705,8 +707,9 @@ header nav {
 
 .logo {
   font-family: 'Syncopate';
-  font-size: 12px;
+  font-size: var(--nav-font-size);
   line-height: 1;
+  letter-spacing: 0.15em;
   /* padding: 6px 8px 5px; */
   /* border: 2px solid currentColor; */
   border-radius: 20px;
