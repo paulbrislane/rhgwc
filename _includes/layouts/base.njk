@@ -62,51 +62,48 @@
     <header>
       <nav class="container">
         <div id="nav">
-          <a class="logo" href="{{ '/' | url }}" title="Homepage">{{ metadata.abbr }}</a>
-        </h1>
-        {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-        {%- for entry in collections.all | eleventyNavigation %}
-          <a href="{{ entry.url | url }}">{{ entry.title }}</a>
-        {%- endfor %}
-      </div>
-      {# <div id="reading-progress" aria-hidden="true"></div> #}
-    </nav>
+          <a href="{{ '/' | url }}" title="Homepage">{{ metadata.abbr }}</a>
+          {%- for entry in collections.all | eleventyNavigation %}
+            <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+          {%- endfor %}
+        </div>
+      </nav>
 
-    {% if '/posts/' in page.url %}
-      <h1>{{ title }}</h1>
-    {% else %}
-      {% include 'header.njk' %}
-    {% endif %}
-
-    {% block extraArticleHeader %}{% endblock %}
-    <dialog id="message"></dialog>
-    {% if googleanalytics %}
-      <noscript>
-        <img src="/.netlify/functions/ga?v=1&_v=j83&t=pageview&dr=https%3A%2F%2Fno-script.com&_s=1&dh={{ metadata.domain | encodeURIComponent }}&dp={{ page.url | encodeURIComponent }}&ul=en-us&de=UTF-8&dt={{title|encodeURIComponent}}&tid={{googleanalytics}}" width="1" height="1"
-        style="display:none" alt="">
-      </noscript>
-    {% endif %}
-  </header>
-
-  <main>
-    <article>
-      {% block article %}
-        {{ content | safe }}
-      {% endblock %}
-
-      {% if page
-        .url
-        .indexOf("/posts/") > -1 %}
-        <p>Published <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
-        </p>
+      {% if '/posts/' in page.url %}
+        <h1>{{ title }}</h1>
+      {% else %}
+        {% include 'header.njk' %}
       {% endif %}
-    </article>
-  </main>
 
-  <footer>
-    <a class="twitter" href="{{ metadata.twitter.url }}">
-      <svg class="twitter__svg" viewBox="328 355 335 276" xmlns="http://www.w3.org/2000/svg">
-        <path d="
+      {% block extraArticleHeader %}{% endblock %}
+      <dialog id="message"></dialog>
+      {% if googleanalytics %}
+        <noscript>
+          <img src="/.netlify/functions/ga?v=1&_v=j83&t=pageview&dr=https%3A%2F%2Fno-script.com&_s=1&dh={{ metadata.domain | encodeURIComponent }}&dp={{ page.url | encodeURIComponent }}&ul=en-us&de=UTF-8&dt={{title|encodeURIComponent}}&tid={{googleanalytics}}" width="1" height="1"
+        style="display:none" alt="">
+        </noscript>
+      {% endif %}
+    </header>
+
+    <main>
+      <article>
+        {% block article %}
+          {{ content | safe }}
+        {% endblock %}
+
+        {% if page
+          .url
+          .indexOf("/posts/") > -1 %}
+          <p>Published <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+          </p>
+        {% endif %}
+      </article>
+    </main>
+
+    <footer>
+      <a class="twitter" href="{{ metadata.twitter.url }}">
+        <svg class="twitter__svg" viewBox="328 355 335 276" xmlns="http://www.w3.org/2000/svg">
+          <path d="
             M 630, 425
             A 195, 195 0 0 1 331, 600
             A 142, 142 0 0 0 428, 570
@@ -123,10 +120,10 @@
             A  65,  65 0 0 1 630, 425
             Z"
             style="fill:#3BA9EE;"/>
-      </svg>
-    </a>
-  </footer>
+        </svg>
+      </a>
+    </footer>
 
-  <!-- Current page: {{ page.url | url }} -->
-</body>
+    <!-- Current page: {{ page.url | url }} -->
+  </body>
 </html>

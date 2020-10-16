@@ -1,7 +1,7 @@
 ---
 title: The Cairngorms & Corrour Bothy
 description: Don't take a bottle of red wine and a hard back book.
-date: 2018-08-24
+date: 2018-09-21
 tags:
   - second-tag
 layout: layouts/post.njk

@@ -1,11 +1,10 @@
 ---
-title: Glencoe & The Buachaille
-description: This is a post on My Blog about agile frameworks.
-date: 2018-05-01
+title: Isle of Arran & Beinn Tarsuinn
+description: Good.
+date: 2019-09-20
 tags:
-  - another-tag
 layout: layouts/post.njk
-image: /img/buachaille_etive_mor/buachaille_etive_mor.jpg
+image: /img/isle_of_arran/isle_of_arran.jpg
 ---
 
 Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
