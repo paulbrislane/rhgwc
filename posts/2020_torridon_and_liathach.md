@@ -7,7 +7,9 @@ layout: layouts/post.njk
 image: /img/liathach/liathach.jpg
 ---
 
-This time we fly. An early pick up to get us to Manchester airport and on the Logainair flight to Inverness.  No delays and takeoff into clear skies, England zips by beneath and we land in Inverness less than an hour later.  We wouldn't have even reached the Lake District yet had we driven.
+This time we fly. An early pick up to get us to Manchester airport and on the Logainair flight to Inverness.
+
+No delays and takeoff into clear skies, England zips by beneath and we land in Inverness less than an hour later.  We wouldn't have even reached the Lake District yet had we driven.
 
 Pick up the car and drive to Torridon. Small village at the foot of Liathach (The Big Grey One).
 
