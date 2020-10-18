@@ -197,6 +197,22 @@ function expose(name, fn) {
   exposed[name] = fn;
 }
 
+function dialog() {
+  const button = document.querySelector('button');
+  const dialog = document.querySelector('dialog');
+
+  if (button.value === 'initial') {
+    button.value = 'clickeddy';
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 30"><g fill="none" fill-rule="evenodd"><path d="M0 0h38v30H0z"/><path fill="#FFF" fill-rule="nonzero" d="M19 0a15 15 0 110 30 15 15 0 010-30zm0 1.77C11.54 1.77 5.49 7.7 5.49 15c0 7.3 6.05 13.23 13.51 13.23S32.51 22.3 32.51 15c0-7.3-6.05-13.23-13.51-13.23zm6.36 6.68c.4.4.43 1.03.09 1.47l-.09.1-4.89 4.88 4.9 4.9a1.1 1.1 0 01-1.48 1.65l-.1-.09-4.88-4.89-4.9 4.9a1.1 1.1 0 01-1.65-1.48l.09-.1 4.9-4.88-4.9-4.9a1.1 1.1 0 011.47-1.65l.1.09 4.89 4.9 4.89-4.9a1.1 1.1 0 011.56 0z"/></g></svg>';
+  } else {
+    button.value = "initial"
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 30"><path fill="#FFF" fill-rule="nonzero" d="M2.92 29.1l6.43-10.14a1.25 1.25 0 012.23.26l1.2 3.48 7.86-11.94c.24-.36.62-.58 1.07-.56.43 0 .82.23 1.04.6l11.51 19.03.05-.05a18.65 18.65 0 003.07-10.3A18.63 18.63 0 0018.82.84 18.63 18.63 0 00.26 19.5c0 3.34.89 6.61 2.57 9.47.02.05.06.1.1.14z"/></svg>';
+  }
+
+  dialog.toggleAttribute('open');
+}
+expose("dialog", dialog);
+
 addEventListener("click", (e) => {
   const handler = e.target.closest("[on-click]");
   if (!handler) {
@@ -210,6 +226,7 @@ addEventListener("click", (e) => {
   }
   fn(handler);
 });
+
 
 // There is a race condition here if an image loads faster than this JS file. But
 // - that is unlikely
@@ -228,7 +245,6 @@ document.body.addEventListener(
   /* capture */ "true"
 );
 
-var root = document.documentElement;
 const lists = document.querySelectorAll('.post-list');
 
 lists.forEach(el => {

@@ -1,18 +1,20 @@
 <ul class="post-list">
-{% for post in postslist | reverse %}
-  <li class="post-list__item">
-    <a class="card" href="{{ post.url | url }}">
-      <img src="{{ post.data.image }}" alt="">
-      <div class="card__body">
-        <div>
-          <h2 class="card__title">{{ post.data.title }}</h2>
-          <p class="card__description">{{ post.data.description }}</p>
+  {% for post in postslist | reverse %}
+    <li class="post-list__item">
+      <a class="card" href="{{ post.url | url }}">
+        <img src="{{ post.data.image }}" alt="">
+        <div class="card__body">
+          <h2 class="card__title">
+            {{ post.data.title }}
+          </h2>
+          <time
+            class="card__time"
+            datetime="{{ post.date | htmlDateString }}"
+          >
+            {{ post.date | readableDate }}
+          </time>
         </div>
-        <time class="card__time" datetime="{{ post.date | htmlDateString }}">
-          {{ post.date | readableDate }}
-        </time>
-      </div>
-    </a>
-  </li>
-{% endfor %}
+      </a>
+    </li>
+  {% endfor %}
 </ul>

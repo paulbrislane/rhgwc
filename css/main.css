@@ -22,6 +22,7 @@ main img {
 /* "Content-visibility: auto" move the images over the other elements
    Set z-index to keep the nav over the rasterized images */
 header nav {
+  position: relative;
   z-index: 1;
 }
 
@@ -37,76 +38,10 @@ header nav {
 }
 /*! purgecss end ignore */
 
-share-widget {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  opacity: 0.9;
-}
-
-share-widget div {
-  width: 30px;
-  height: 30px;
-  background-image: url('/img/share.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.apple share-widget div {
-  background-image: url('/img/share-apple.svg');
-}
-
-share-widget button {
-  margin: 0;
-}
-
-share-widget button:active {
-  transform: scale(1.2);
-}
-
-dialog {
-  background-color: #8dff80;
-  position: fixed;
-  opacity: 0.9;
-}
-
-img[align="left"] {
-  width: auto;
-  height: 16rem;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-}
-
-dl {
-  clear: both;
-  display: block!important;
-}
-
-header aside {
-  font-style: italic;
-}
-
 #nav {
   z-index: 2;
   position: relative;
 }
-
-#reading-progress {
-  z-index: 1;
-  background-color: var(--primary);
-  width: 100vw;
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  transform: translate(-100vw, 0);
-  will-change: transform;
-  pointer-events: none;
-}
-
-/* #posts li {
-  margin-bottom: 0.5em;
-} */
 
 /* https://github.com/rsms/inter/blob/master/LICENSE.txt
 
@@ -410,12 +345,12 @@ BUGS:
 
 /* My Styling */
 :root {
+  --border-radius: 16px;
   --container-width: 1540px;
   --container-width-narrow: calc(var(--container-width) / 2);
   --container: calc((100vw - var(--container-width)) / 2);
   --container-narrow: calc((100vw - var(--container-width-narrow)) / 2);
-  --nav-font-size: 14px;
-  --header-height: calc(90px);
+  --header-height: 90px;
 
   --black: #000;
   --white: #fff;
@@ -434,27 +369,14 @@ html{
   box-sizing: inherit;
 }
 
-html * {
-  /* outline: 1px solid gold; */
-}
-
 body {
-  background-color: #000 !important;
+  background-color: var(--black);
   margin: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* body > * {
-  padding: 0 calc((100vw - var(--container-width)) / 2);
-}
-
-@media (max-width: 1500px) {
- body > * {
-    margin: 0 20px;
-  }
-} */
 .container {
   padding: 0 var(--container);
 }
@@ -471,13 +393,8 @@ section {
   margin: 0 20px;
 }
 
-header {
-
-  /* padding: 0 0 calc(var(--header-height) + 100px); */
-}
-
-header nav {
-  height: var(--header-height);
+nav {
+  height: clamp(calc(var(--header-height) / 2), 12vw, var(--header-height));
   margin-bottom: min(14vw, 180px);
   display: flex;
   align-items: flex-end;
@@ -485,11 +402,11 @@ header nav {
   justify-content: space-between;
 }
 
-header nav a {
+nav a {
   font-family: 'Syncopate';
   color:var(--white);
   text-transform: uppercase;
-  font-size: var(--nav-font-size);
+  font-size: clamp(14px, 3vw, 16px);
   letter-spacing: 0.15em;
   line-height: 1;
   text-decoration: none;
@@ -498,37 +415,29 @@ header nav a {
 
 main {
   flex: 1;
-  /* padding: calc(var(--header-height) * 2) 0; */
   margin: min(12vw, var(--header-height)) 0;
 }
 
 article {
+  color: var(--white);
   padding: 0 var(--container-narrow);
   margin: 0 20px;
-}
-/*
-@media (max-width: 790px) {
-  article {
-    margin: 0 20px;
-  }
-} */
-
-article p {
-  color: var(--white);
 }
 
 p {
   line-height: 1.8;
   font-size: clamp(16px, 2.5vw, 20px);
+  margin: 0 0 1em;
 }
 
 img {
   max-width: 100%;
   height: auto;
-  vertical-align: top;
 }
 
-picture {
+img,
+picture,
+svg {
   display: block;
 }
 
@@ -539,7 +448,7 @@ h1 {
 }
 
 header h1 {
-  margin: 0 0 90px;
+  margin: 0 0 clamp(calc(var(--header-height) / 2), 12vw, var(--header-height));
   text-align: center;
 }
 
@@ -555,7 +464,6 @@ header h1 {
 
 .title__grid {
   display: grid;
-  /* grid-template-columns: repeat(2, 1fr); */
   color: var(--white);
 }
 
@@ -568,14 +476,21 @@ header h1 {
 
 .title p {
   font-size: clamp(12px, 3vw, 14px);
-  margin: 1em 0 0;
+  margin: 1em 0 1.5em;
+}
+
+@media (max-width: 767px) {
+  .title {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }
 
 @media (min-width: 768px) {
   .title__grid {
     align-items: flex-end;
     grid-template-columns: repeat(2, 1fr);
-    margin-top: -40px;
+    margin-top: -1.5vmax;
   }
 
   .title h1 {
@@ -595,7 +510,7 @@ header h1 {
 
 #posts h2 {
   font-family: 'Syncopate';
-  font-size: 24px;
+  font-size: clamp(18px, 2vw, 24px);
   text-transform: uppercase;
   font-style: normal;
 }
@@ -605,14 +520,25 @@ header h1 {
   margin: -10px 0;
   list-style: none;
   display: grid;
-  grid-gap: 16px;
+  grid-gap: 20px;
   grid-template-columns:
-    16px
+    0
     repeat(var(--post-total), clamp(280px, 74vw, 350px))
-    16px;
+    1px;
   overflow-x: auto;
   width: 100vw;
-  /* scroll-snap-type: x proximity; */
+
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.post-list::before,
+.post-list::after {
+  content: '';
+}
+
+.post-list::-webkit-scrollbar {
+  display: none;
 }
 
 @media(min-width:768px) {
@@ -621,29 +547,41 @@ header h1 {
     grid-template-columns:
       0
       repeat(var(--post-total), clamp(350px, 45vw, 450px))
-      0;
+      1px;
   }
 }
 
-.post-list::before,
-.post-list::after {
-  content: '';
+.post-list__item {
+  display: flex;
+  height: 400px;
 }
 
-.post-list__item {
-  margin-bottom: 0;
-  scroll-snap-align: start end;
-  display: inline-flex;
+
+@media(max-width:767px) {
+  .post-list {
+    scroll-snap-type: x proximity;
+  }
+
+  .post-list__item {
+    scroll-snap-align: start center;
+  }
 }
 
 .post__featured-image {
-  border-radius: 16px;
+  border-radius: calc(var(--border-radius) / 2);
+}
+
+@media (min-width: 768px) {
+  .post__featured-image {
+    border-radius: var(--border-radius);
+  }
 }
 
 .card {
   background-color: #e1e1e1;
   border-radius: 8px;
   display: flex;
+  flex: 1;
   flex-direction: column;
   overflow: hidden;
   transition: 0.2s;
@@ -668,7 +606,7 @@ header h1 {
   color: #202020;
   font-size: 48px;
   line-height: 1.4;
-  margin: 0 0 14px;
+  margin: 0;
 }
 
 .card__description {
@@ -720,4 +658,27 @@ footer {
   100% {
     transform: scale3d(1, 1, 1);
   }
+}
+
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  width: 38px;
+  height: 32px;
+}
+
+button:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+dialog[open] {
+  background-color: rgba(0, 0, 0, 0.925);
+  display: grid;
+  height: 100%;
+  place-content: center;
+  position: fixed;
+  width: 100%;
+  display: grid;
 }

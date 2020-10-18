@@ -1,6 +1,5 @@
 ---
 title: Glencoe & The Buachaille
-description: This is a post on My Blog about agile frameworks.
 date: 2019-01-16
 tags:
 layout: layouts/post.njk

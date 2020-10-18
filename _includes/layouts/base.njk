@@ -14,7 +14,7 @@
     {% else %}
       <link rel="icon" href="{{ '/img/favicon/favicon-192x192.png' | addHash }}" type="image/png">
     {% endif %}
-    <meta name="theme-color" content="#f9c412">
+    <meta name="theme-color" content="#000">
     <meta name="robots" content="max-snippet:-1, max-image-preview: large, max-video-preview: -1">
     <title>{{ renderData.title or title or metadata.title | escape }}</title>
     <meta property="og:title" content="{{ renderData.title or title or metadata.title | escape  }}">
@@ -56,9 +56,12 @@
     <header>
       <nav>
         <a href="{{ '/' | url }}" title="Homepage">{{ metadata.abbr }}</a>
-        {%- for entry in collections.all | eleventyNavigation %}
+        {# {%- for entry in collections.all | eleventyNavigation %}
           <a href="{{ entry.url | url }}">{{ entry.title }}</a>
-        {%- endfor %}
+        {%- endfor %} #}
+        <button on-click="dialog" type="button" value="initial">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 30"><path fill="#FFF" fill-rule="nonzero" d="M2.92 29.1l6.43-10.14a1.25 1.25 0 012.23.26l1.2 3.48 7.86-11.94c.24-.36.62-.58 1.07-.56.43 0 .82.23 1.04.6l11.51 19.03.05-.05a18.65 18.65 0 003.07-10.3A18.63 18.63 0 0018.82.84 18.63 18.63 0 00.26 19.5c0 3.34.89 6.61 2.57 9.47.02.05.06.1.1.14z"/></svg>
+        </button>
       </nav>
 
       {% if '/posts/' in page.url %}
@@ -105,7 +108,8 @@
         </svg>
       </a>
     </footer>
-
-    <!-- Current page: {{ page.url | url }} -->
+    <dialog>
+      {% include 'dialog.njk' %}
+    </dialog>
   </body>
 </html>

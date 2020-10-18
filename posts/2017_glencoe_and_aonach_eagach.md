@@ -1,6 +1,5 @@
 ---
 title: Glencoe & Aonach Eagach
-description: This is a post on My Blog about leveraging agile frameworks.
 date: 2017-09-22
 tags:
   - number-2

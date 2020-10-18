@@ -1,6 +1,5 @@
 ---
-title: Torridon & Liathach
-description: Never again will we drive to Scotland.
+title: Torridon Hills & Liathach
 date: 2020-09-25
 tags: second-tag
 layout: layouts/post.njk

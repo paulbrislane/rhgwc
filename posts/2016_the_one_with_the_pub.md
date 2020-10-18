@@ -1,6 +1,5 @@
 ---
 title: Blencathra & the Pub
-description: This is a post on My Blog about agile frameworks.
 date: 2016-09-24
 tags:
   - another-tag
