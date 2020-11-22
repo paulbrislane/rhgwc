@@ -142,6 +142,15 @@ svg {
   display: block;
 }
 
+article img {
+  border-radius: calc(var(--border-radius) / 2);
+  margin: 0 auto clamp(3rem,12vw, 5rem);
+}
+
+article p {
+  margin-bottom: clamp(3rem,12vw, 5rem);
+}
+
 h1 {
   color: var(--white);
   font-size: 64px;
